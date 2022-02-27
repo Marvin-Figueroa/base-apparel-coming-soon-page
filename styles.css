@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+:root {
+  --color-desaturated-red: hsl(0, 36%, 70%);
+  --color-soft-red: hsl(0, 93%, 68%);
+  --color-dark-grayish-red: hsl(0, 6%, 24%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.6rem;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows: 2fr 9fr;
+
+  background-image: url(images/bg-pattern-desktop.svg),
+    linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  background-position: left top;
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.text-container {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  margin-top: 5.5rem;
+}
+
+.text-content {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hero-img {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 5.6rem;
+  letter-spacing: 12px;
+  color: var(--color-dark-grayish-red);
+  margin-bottom: 3rem;
+}
+
+.title-accent {
+  color: var(--color-desaturated-red);
+  font-weight: 300;
+}
+
+.main-description {
+  color: var(--color-desaturated-red);
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-size: 1.5rem;
+  font-weight: 550;
+  opacity: 0.7;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  gap: 1.5rem;
+  border-radius: 20rem;
+  border: none;
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+.email-input {
+  height: 3rem;
+  width: 75%;
+  border: none;
+  outline: none;
+  color: var(--color-desaturated-red);
+  font-family: inherit;
+  font-size: 1.6rem;
+  background-color: transparent;
+}
+
+::placeholder {
+  font-family: inherit;
+  color: var(--color-desaturated-red);
+  font-size: 1.6rem;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 20rem;
+  background: linear-gradient(#f8bfbf, rgb(238, 140, 140));
+  cursor: pointer;
+  box-shadow: rgb(238, 140, 140) 0px 10px 30px -8px;
+  transform: scale(1.05);
+  order: 2;
+  margin-left: auto;
+}
+
+.btn-submit__icon {
+  width: 1.2rem;
+  height: 1.6rem;
+}
+
+.btn-submit:hover,
+.btn-submit:active {
+  background: pink;
+}
+
+.input-error {
+  position: relative;
+  border: 1px solid var(--color-soft-red);
+}
+
+.input-error::after {
+  content: "Please provide a valid email";
+  display: block;
+  position: absolute;
+  bottom: -24px;
+  color: var(--color-soft-red);
+  font-size: 1.3rem;
+}
+
+.input-error::before {
+  content: url(images/icon-error.svg);
+  display: block;
+  order: 1;
+}
+
+/* Width <= 1200px */
+@media screen and (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+
+  .text-content {
+    width: 55%;
+  }
+}
+
+/* Width <= 1000px */
+@media screen and (max-width: 62em) {
+  html {
+    font-size: 55%;
+  }
+
+  .text-content {
+    width: 60%;
+  }
+}
+
+/* Width <= 800px */
+@media screen and (max-width: 50em) {
+  html {
+    font-size: 50%;
+  }
+
+  .text-content {
+    width: 65%;
+  }
+}
+
+/* MOBILE Width <= 704px */
+@media screen and (max-width: 44em) {
+  main {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: none;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    order: 1;
+    height: 10vh;
+  }
+
+  .text-container {
+    order: 3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+    margin: 3rem 0 5rem 0;
+  }
+
+  .hero-img {
+    order: 2;
+    height: 35vh;
+    object-position: 10% 10%;
+  }
+
+  .logo-img {
+    display: block;
+  }
+
+  .text-content {
+    width: 85%;
+  }
+}
+
+/* MOBILE Width <= 400px */
+@media screen and (max-width: 25em) {
+  .btn-submit {
+    min-width: 6rem;
+  }
+
+  .text-content {
+    width: 75%;
+  }
+}
